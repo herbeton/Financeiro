@@ -35,8 +35,18 @@
 		<!-- Cria as tabelas do banco de dados -->
 		<property name="hbm2ddl.auto">create</property>
 		
-		
-		
+		<!-- Mapeando as tabelas no DB -->
+		<mapping class="br.com.financeiro.domain.Cliente"/>
+		<mapping class="br.com.financeiro.domain.Cidade"/>
+		<mapping class="br.com.financeiro.domain.Estado"/>
+		<mapping class="br.com.financeiro.domain.Fornecedor"/>
+		<mapping class="br.com.financeiro.domain.Funcionario"/>
+		<mapping class="br.com.financeiro.domain.ItemVenda"/>
+		<mapping class="br.com.financeiro.domain.Pessoa"/>
+		<mapping class="br.com.financeiro.domain.Produto"/>
+		<mapping class="br.com.financeiro.domain.Usuario"/>
+		<mapping class="br.com.financeiro.domain.Venda"/>
+				
 	</session-factory>
 
 </hibernate-configuration>
