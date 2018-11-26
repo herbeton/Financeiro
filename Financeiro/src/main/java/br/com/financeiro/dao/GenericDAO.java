@@ -41,7 +41,7 @@ public class GenericDAO<Entidade> {
 		}
 	}
 	
-	public void merg(Entidade entidade) {
+	public void merge(Entidade entidade) {
 		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
 		Transaction transacao = null;
 		
