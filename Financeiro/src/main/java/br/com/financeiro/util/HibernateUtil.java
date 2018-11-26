@@ -20,6 +20,7 @@ public class HibernateUtil {
 	        
 	        ServiceRegistry registro = new StandardServiceRegistryBuilder()
 	                .applySettings(configuration.getProperties()).build();
+	        
 	        SessionFactory fabrica = configuration.buildSessionFactory(registro);
 	        
 	        return fabrica;

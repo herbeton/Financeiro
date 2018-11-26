@@ -10,8 +10,8 @@
 
 		<!-- Configurações de Conexão com o Banco de Dados -->
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-		<!--<property name="connection.url">jdbc:mysql://127.0.0.1:3306/financeiro</property>-->
-		<property name="javax.persistence.jdbc.url">jdbc:mysql://127.0.0.1:3306/financeiro</property>
+		<property name="connection.url">jdbc:mysql://127.0.0.1:3306/financeiro</property>
+		<!--<property name="javax.persistence.jdbc.url">jdbc:mysql://127.0.0.1:3306/financeiro</property>-->
 
 		
 		<property name="connection.username">hbnavy</property>
@@ -34,6 +34,8 @@
 
 		<!-- Cria as tabelas do banco de dados -->
 		<property name="hbm2ddl.auto">create</property>
+		
+		
 		
 	</session-factory>
 
