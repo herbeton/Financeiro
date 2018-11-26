@@ -33,7 +33,10 @@
 		<property name="show_sql">true</property>
 
 		<!-- Cria as tabelas do banco de dados -->
-		<property name="hbm2ddl.auto">create</property>
+		<!--<property name="hbm2ddl.auto">create</property>-->
+		
+		<!-- Atualiza as tabelas do banco de dados -->
+		<property name="hbm2ddl.auto">update</property>
 		
 		<!-- Mapeando as tabelas no DB -->
 		<mapping class="br.com.financeiro.domain.Cliente"/>
