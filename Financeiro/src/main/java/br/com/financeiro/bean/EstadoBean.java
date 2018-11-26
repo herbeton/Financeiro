@@ -2,7 +2,9 @@ package br.com.financeiro.bean;
 
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -18,6 +20,7 @@ import br.com.financeiro.domain.Estado;
 @ViewScoped
 public class EstadoBean implements Serializable {
 	private Estado estado;
+	private List<Estado> estados;
 
 	public Estado getEstado() {
 		return estado;
@@ -43,6 +46,25 @@ public class EstadoBean implements Serializable {
 			Messages.addGlobalError("Ocorreu um erro ao tentar salvar o estado");
 			erro.printStackTrace();
 		}
+	}
+	
+	@PostConstruct
+	public void listar(){
+		try{
+			EstadoDAO estadoDAO = new EstadoDAO();
+			setEstados(estadoDAO.listar());
+		} catch (RuntimeException erro) {
+			Messages.addGlobalError("Ocorreu um erro ao tentar listar os estados");
+			erro.printStackTrace();
+		}
+	}
+
+	public List<Estado> getEstados() {
+		return estados;
+	}
+
+	public void setEstados(List<Estado> estados) {
+		this.estados = estados;
 	}
 }
 
