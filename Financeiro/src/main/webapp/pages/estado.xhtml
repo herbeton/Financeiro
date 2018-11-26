@@ -14,7 +14,7 @@
 	<h:form>
 		<p:panel header="Lista de Estados">
 			<p:dataTable emptyMessage="Nenhum registro encontrado."
-				paginator="true" value="#{estadoBean.estados}" var="estado">
+				paginator="true" value="#{estadoBean.estados}" var="estado" rows="10">
 				<f:facet name="header">
 					<p:commandButton value="Novo" oncomplete="PF('dialogo').show();" 
 					actionListener="#{estadoBean.novo()}" 
