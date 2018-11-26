@@ -7,13 +7,13 @@ import org.hibernate.service.ServiceRegistry;
 
 public class HibernateUtil {
 	
-	private static SessionFactory fabricaDeSessoes = criaFabricaDeSessoes();
+	private static SessionFactory fabricaDeSessoes = criarFabricaDeSessoes();
 	
-	public static SessionFactory setFabricaDeSessoes() {
+	public static SessionFactory getFabricaDeSessoes() {
         return fabricaDeSessoes;
     }
 	
-    private static SessionFactory criaFabricaDeSessoes() {
+    private static SessionFactory criarFabricaDeSessoes() {
 
 	    try {
 	        Configuration configuration = new Configuration().configure();
