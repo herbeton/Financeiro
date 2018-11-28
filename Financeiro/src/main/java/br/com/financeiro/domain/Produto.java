@@ -47,7 +47,7 @@ public class Produto extends GenericDomain {
 		this.preco = preco;
 	}
 
-	public Fornecedor getFabricante() {
+	public Fornecedor getFornecedor() {
 		return fornecedor;
 	}
 
