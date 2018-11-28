@@ -81,6 +81,8 @@ public class ProdutoBean implements Serializable {
 	public void editar(ActionEvent evento){
 		try {
 			produto = (Produto) evento.getComponent().getAttributes().get("produtoSelecionado");
+			produto.setCaminho("C:/Users/Herbeton Bispo//git/Financeiro/Financeiro/uploads/" + 
+					produto.getCodigo() + ".jpg");
 
 			FornecedorDAO fornecedorDAO = new FornecedorDAO();
 			fornecedor = fornecedorDAO.listar();
