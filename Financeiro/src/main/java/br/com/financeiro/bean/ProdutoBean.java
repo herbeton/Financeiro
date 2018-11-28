@@ -121,11 +121,15 @@ public class ProdutoBean implements Serializable {
 
 			ProdutoDAO produtoDAO = new ProdutoDAO();
 			produtoDAO.excluir(produto);
+			
+			Path arquivo = Paths.get("C:/Users/Herbeton Bispo//git/Financeiro/Financeiro/uploads/" + 
+					produto.getCodigo() + ".jpg");
+			Files.deleteIfExists(arquivo);
 
 			produtos = produtoDAO.listar();
 
 			Messages.addGlobalInfo("Produto removido com sucesso");
-		} catch (RuntimeException erro) {
+		} catch (RuntimeException | IOException erro) {
 			Messages.addFlashGlobalError("Ocorreu um erro ao tentar remover o produto");
 			erro.printStackTrace();
 		}
