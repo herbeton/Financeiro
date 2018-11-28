@@ -97,7 +97,7 @@ public class ProdutoBean implements Serializable {
 			
 			Path origem = Paths.get(produto.getCaminho());
 			Path destino = Paths.get("C:/Users/Herbeton Bispo//git/Financeiro/Financeiro/uploads/" + 
-			produtoRetorno.getCaminho() + ".jpg");
+			produtoRetorno.getCodigo() + ".jpg");
 			
 			Files.copy(origem, destino, StandardCopyOption.REPLACE_EXISTING);
 
