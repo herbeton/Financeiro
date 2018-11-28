@@ -72,13 +72,13 @@ template="/templates/template.xhtml">
 	
 		<p:dialog header="Produtos - Cadastro" widgetVar="dialogo"
 			draggable="false" resizable="false" global="true" closable="false">
-			<h:form id="formCadastro">
+			<h:form id="formCadastro" enctype="multipart/form-data">
 				<h:panelGrid id="painel" columns="2">
 					<p:outputLabel value="Descrição:" />
 					<p:inputText maxlength="50" size="30"
 						value="#{produtoBean.produto.descricao}" required="true"
 						requiredMessage="O campo 'Descrição' é obrigatório" />
-	
+					
 					<p:outputLabel value="Quantidade:" />
 					<p:inputText maxlength="5" size="10"
 						value="#{produtoBean.produto.quantidade}" required="true"
@@ -108,6 +108,10 @@ template="/templates/template.xhtml">
 						<f:selectItems value="#{produtoBean.fornecedor}" var="fornecedor"
 							itemValue="#{fornecedor}" itemLabel="#{fornecedor.descricao}" />
 					</p:selectOneMenu>
+					
+					<p:outputLabel value="Imagem:" for="foto"/>
+					<p:fileUpload id="foto" mode="advanced" 
+					fileUploadListener="#{produtoBean.upload}" update=":mensagem" auto="true"/>
 	
 				</h:panelGrid>
 	
