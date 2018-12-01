@@ -2,10 +2,13 @@ package br.com.financeiro.dao;
 
 import java.util.List;
 
+import org.bouncycastle.crypto.RuntimeCryptoException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.omnifaces.util.Messages;
 
 import br.com.financeiro.domain.ItemVenda;
+import br.com.financeiro.domain.Produto;
 import br.com.financeiro.domain.Venda;
 import br.com.financeiro.util.HibernateUtil;
 
@@ -24,6 +27,15 @@ public class VendaDAO extends GenericDAO<Venda> {
 				itemVenda.setVenda(venda);
 				
 				sessao.save(itemVenda);
+				Produto produto = itemVenda.getProduto();
+				if(itemVenda.getQuantidade() > produto.getQuantidade()) {
+					throw new RuntimeCryptoException("Quantidade de estoque inexistente para este produto!");
+				}else {
+					
+					produto.setQuantidade((short)(produto.getQuantidade() - itemVenda.getQuantidade()));
+				}
+				
+				sessao.update(produto);
 			}
 			
 			transacao.commit();
