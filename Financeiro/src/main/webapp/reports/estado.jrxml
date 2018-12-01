@@ -21,12 +21,7 @@ ORDER BY financeiro.estado.nome ASC]]>
 		<property name="com.jaspersoft.studio.field.tree.path" value="estado"/>
 	</field>
 	<title>
-		<band height="79" splitType="Stretch">
-			<image hAlign="Center">
-				<reportElement x="0" y="0" width="560" height="77" uuid="33d91421-b1ad-4e04-8159-720fa3710032"/>
-				<imageExpression><![CDATA["src/main/webapp/resources/images/bannerqcursos.jpg"]]></imageExpression>
-			</image>
-		</band>
+		<band height="79" splitType="Stretch"/>
 	</title>
 	<pageHeader>
 		<band height="49" splitType="Stretch">
