@@ -111,12 +111,12 @@ template="/templates/template.xhtml">
 					
 					<p:outputLabel value="Imagem:" for="upload"/>
 					<p:fileUpload id="upload" mode="advanced" 
-					fileUploadListener="#{produtoBean.upload}" width="120" height="120"
+					fileUploadListener="#{produtoBean.upload}" width="50" height="50"
 					update=":mensagem :formCadastro:foto" auto="true"/>
 					
 					<p:outputLabel value="Foto:" for="foto"/>
 					<p:graphicImage id="foto" value="#{imageBean.foto}">
-						<f:param name="caminho" value="#{produtoBeans.produto.caminho}"/>
+						<f:param name="caminho" value="#{produtoBean.produto.caminho}"/>
 					</p:graphicImage>
 					
 	

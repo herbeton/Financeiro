@@ -6,7 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import javax.annotation.ManagedBean;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
@@ -32,7 +32,7 @@ public class ImageBean {
 
 	public StreamedContent getFoto() throws IOException {
 		if(caminho == null || caminho.isEmpty()) {
-			Path path = Paths.get("C:/Users/Herbeton Bispo/git/Financeiro/Financeiro/uploads/branco.png");
+			Path path = Paths.get("C:/Users/Herbeton Bispo/git/Financeiro/Financeiro/uploads/branco.jpg");
 			InputStream stream = Files.newInputStream(path);
 			foto = new DefaultStreamedContent(stream);
 		}

@@ -81,7 +81,7 @@ public class ProdutoBean implements Serializable {
 	public void editar(ActionEvent evento){
 		try {
 			produto = (Produto) evento.getComponent().getAttributes().get("produtoSelecionado");
-			produto.setCaminho("C:/Users/Herbeton Bispo//git/Financeiro/Financeiro/uploads/" + 
+			produto.setCaminho("C:/Users/Herbeton Bispo/git/Financeiro/Financeiro/uploads/" + 
 					produto.getCodigo() + ".jpg");
 
 			FornecedorDAO fornecedorDAO = new FornecedorDAO();
@@ -94,11 +94,17 @@ public class ProdutoBean implements Serializable {
 	
 	public void salvar() {
 		try {
+			
+			if(produto.getCaminho() == null) {
+				Messages.addGlobalInfo("A imagem eh obrigatoria!");
+				return;
+			}
+			
 			ProdutoDAO produtoDAO = new ProdutoDAO();
 			Produto produtoRetorno = produtoDAO.merge(produto);
 			
 			Path origem = Paths.get(produto.getCaminho());
-			Path destino = Paths.get("C:/Users/Herbeton Bispo//git/Financeiro/Financeiro/uploads/" + 
+			Path destino = Paths.get("C:/Users/Herbeton Bispo/git/Financeiro/Financeiro/uploads/" + 
 			produtoRetorno.getCodigo() + ".jpg");
 			
 			Files.copy(origem, destino, StandardCopyOption.REPLACE_EXISTING);
@@ -124,7 +130,7 @@ public class ProdutoBean implements Serializable {
 			ProdutoDAO produtoDAO = new ProdutoDAO();
 			produtoDAO.excluir(produto);
 			
-			Path arquivo = Paths.get("C:/Users/Herbeton Bispo//git/Financeiro/Financeiro/uploads/" + 
+			Path arquivo = Paths.get("C:/Users/Herbeton Bispo/git/Financeiro/Financeiro/uploads/" + 
 					produto.getCodigo() + ".jpg");
 			Files.deleteIfExists(arquivo);
 
@@ -132,7 +138,7 @@ public class ProdutoBean implements Serializable {
 
 			Messages.addGlobalInfo("Produto removido com sucesso");
 		} catch (RuntimeException | IOException erro) {
-			Messages.addFlashGlobalError("Ocorreu um erro ao tentar remover o produto");
+			Messages.addFlashGlobalInfo("Ocorreu um erro ao tentar remover o produto");
 			erro.printStackTrace();
 		}
 	}
@@ -143,6 +149,7 @@ public class ProdutoBean implements Serializable {
 			Path arquivoTemp = Files.createTempFile(null, null);
 			Files.copy(arquivoUpload.getInputstream(), arquivoTemp, StandardCopyOption.REPLACE_EXISTING);
 			produto.setCaminho(arquivoTemp.toString());
+			Messages.addGlobalInfo("Imagem salva com sucesso!");
 			
 		} catch (IOException e) {
 			Messages.addFlashGlobalError("Ocorreu um erro ao tentar carregar a imagem");
