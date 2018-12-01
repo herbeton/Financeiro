@@ -36,7 +36,7 @@
 		<!--<property name="hbm2ddl.auto">create</property>-->
 		
 		<!-- Atualiza as tabelas do banco de dados -->
-		<property name="hbm2ddl.auto">validate</property>
+		<property name="hbm2ddl.auto">update</property>
 		
 		<!-- Mapeando as tabelas no DB -->
 		<mapping class="br.com.financeiro.domain.Cliente"/>
@@ -44,6 +44,7 @@
 		<mapping class="br.com.financeiro.domain.Estado"/>
 		<mapping class="br.com.financeiro.domain.Fornecedor"/>
 		<mapping class="br.com.financeiro.domain.Funcionario"/>
+		<mapping class="br.com.financeiro.domain.Historico"/>
 		<mapping class="br.com.financeiro.domain.ItemVenda"/>
 		<mapping class="br.com.financeiro.domain.Pessoa"/>
 		<mapping class="br.com.financeiro.domain.Produto"/>

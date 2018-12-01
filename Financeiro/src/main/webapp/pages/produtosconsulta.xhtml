@@ -16,7 +16,8 @@
 						value="#{produtoPesquisaBean.produto.codigo}" />
 					<p:commandButton icon="ui-icon-search" 
 					actionListener="#{produtoPesquisaBean.buscar}" 
-					update=":mensagem :formulario:painelDados"/>
+					update=":mensagem :formulario:painelDados"
+					process="@this :formulario:codigo"/>
 				</h:panelGrid>
 				
 				<h:panelGroup id="painelDados" layout="block">
@@ -34,6 +35,13 @@
 						
 						<p:outputLabel value="Fornecedor:" />
 						<h:outputText value="#{produtoPesquisaBean.produto.fornecedor.descricao}" />
+						
+						<p:outputLabel value="Observacoes:" />
+						<h:inputTextarea rows="5" cols="50" value="#{produtoPesquisaBean.historico.observacoes}"/>
+					</h:panelGrid>
+					
+					<h:panelGrid rendered="#{produtoPesquisaBean.exibir}">
+						<p:commandButton value="Salvar" actionListener="#{produtoPesquisaBean.salvar}" update=":mensagem"/>
 					</h:panelGrid>
 				</h:panelGroup>
 			</p:panel>
