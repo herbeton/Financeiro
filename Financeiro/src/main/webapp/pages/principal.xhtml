@@ -10,7 +10,7 @@ template="/templates/template.xhtml"
 
 
 <ui:define name="conteudo">
-<h:outputLabel>
+<h:outputLabel value="Bem vindo #{autenticacaoBean.usuarioLogado.pessoa.nome}">
 Página Principal
 </h:outputLabel>
 </ui:define>

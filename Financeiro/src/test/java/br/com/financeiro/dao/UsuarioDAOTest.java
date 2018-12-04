@@ -31,4 +31,16 @@ public class UsuarioDAOTest {
 		
 		System.out.println("Usuário salvo com sucesso.");
 	}
+	
+	@Test
+	//@Ignore
+	public void autenticar(){
+		String cpf = "23123";
+		String senha = "777";
+		
+		UsuarioDAO usuarioDAO = new UsuarioDAO();
+		Usuario usuario = usuarioDAO.autenticar(cpf, senha);
+		
+		System.out.println("Usuário autentica: " + usuario);
+	}
 }
