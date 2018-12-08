@@ -33,14 +33,14 @@ public class UsuarioDAOTest {
 	}
 	
 	@Test
-	//@Ignore
+	@Ignore
 	public void autenticar(){
-		String cpf = "23123";
+		String cpf = "777.777.777-77";
 		String senha = "777";
 		
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
 		Usuario usuario = usuarioDAO.autenticar(cpf, senha);
 		
-		System.out.println("Usuário autentica: " + usuario);
+		System.out.println("Usuário autenticado: " + usuario.getPessoa().getNome());
 	}
 }

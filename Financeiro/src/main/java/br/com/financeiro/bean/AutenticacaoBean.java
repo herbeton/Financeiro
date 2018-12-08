@@ -1,7 +1,6 @@
 package br.com.financeiro.bean;
 
 import java.io.IOException;
-
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
