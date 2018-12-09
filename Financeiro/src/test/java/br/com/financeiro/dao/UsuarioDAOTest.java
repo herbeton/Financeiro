@@ -9,7 +9,7 @@ import br.com.financeiro.domain.Usuario;
 
 public class UsuarioDAOTest {
 	@Test
-	@Ignore
+	//@Ignore
 	public void salvar(){
 		PessoaDAO pessoaDAO = new PessoaDAO();
 		Pessoa pessoa = pessoaDAO.buscar(1L);

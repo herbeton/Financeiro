@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import org.apache.shiro.crypto.hash.SimpleHash;
 import org.omnifaces.util.Messages;
 
 import br.com.financeiro.dao.PessoaDAO;
@@ -72,6 +73,10 @@ public class UsuarioBean implements Serializable {
 
 	public void salvar() {
 		try {
+			
+			SimpleHash senhaCriptografada = new SimpleHash("md5", usuario.getSenha());
+			usuario.setSenha(senhaCriptografada.toHex());
+			
 			UsuarioDAO usuarioDAO = new UsuarioDAO();
 			usuarioDAO.merge(usuario);
 			

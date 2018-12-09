@@ -1,6 +1,8 @@
 package br.com.financeiro.bean;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -52,6 +54,15 @@ public class AutenticacaoBean {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public boolean temPermissoes(List<String>permissoes) {
+		for(String permisao : permissoes) {
+			if(usuarioLogado.getTipo() == permisao.charAt(0)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 }
